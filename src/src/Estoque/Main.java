@@ -8,8 +8,6 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        ArrayList<Produto> lista = new ArrayList<>();
-
         int op;
 
         do {
@@ -24,8 +22,12 @@ public class Main {
 
             if (op == 1) {
                 System.out.print("Nome do produto: ");
-
+                String nome = sc.nextLine();
                 System.out.print("Preço: ");
+                double preco = sc.nextDouble();
+
+                Produto produto = new Produto(nome, preco);
+                produto.adicionarProduto();
             }
 
         } while (op != 0);
