@@ -22,7 +22,11 @@ public class Main {
             System.out.print("Escolha: ");
             op = sc.nextInt();
 
+            if (op == 1) {
+                System.out.print("Nome do produto: ");
 
+                System.out.print("Preço: ");
+            }
 
         } while (op != 0);
 
