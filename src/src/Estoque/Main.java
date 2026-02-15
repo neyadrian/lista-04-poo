@@ -62,7 +62,7 @@ public class Main {
             } else if (op == 3) {
 
                 if (estoque.isEmpty()) {
-                    System.out.println("stoque vazio.");
+                    System.out.println("Estoque vazio.");
                 } else {
                     System.out.println("\nLISTA DE PRODUTOS:");
                     for (Produto p : estoque) {
