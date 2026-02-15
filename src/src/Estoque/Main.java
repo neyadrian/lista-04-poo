@@ -22,7 +22,7 @@ public class Main {
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
             op = sc.nextInt();
-            sc.nextLine(); // limpa buffer
+            sc.nextLine();
 
             if (op == 1) {
 
