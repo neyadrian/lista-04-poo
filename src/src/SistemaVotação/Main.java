@@ -1,17 +1,15 @@
 package SistemaVotação;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+        Urna urna = new Urna();
         ArrayList<Candidato> candidatos = new ArrayList<>();
 
-        candidatos.add(new Candidato("João Silva", 1001));
-        candidatos.add(new Candidato("Maria Santos", 1002));
-        candidatos.add(new Candidato("Pedro Oliveira", 1003));
-        candidatos.add(new Candidato("Ana Costa", 1004));
-        candidatos.add(new Candidato("Carlos Martins", 1005));
 
 
     }

@@ -23,4 +23,21 @@ public class Urna {
                     " | Votos: " + candidato.getVotos());
         }
     }
+
+    public Candidato encontrarVencedor() {
+        int maiorNumeroVotos = 0;
+        Candidato vencedor = null;
+
+        for (Candidato candidato : listaCandidatos) {
+            if (candidato.getVotos() > maiorNumeroVotos) {
+                maiorNumeroVotos = candidato.getVotos();
+                vencedor = candidato;
+            }
+        }
+        return vencedor;
+    }
+
+    public static int getTotalVotosGeral() {
+        return totalVotosGeral;
+    }
 }
