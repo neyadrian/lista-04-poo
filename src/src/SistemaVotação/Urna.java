@@ -8,9 +8,9 @@ public class Urna {
     private ArrayList<Candidato> listaCandidatos;
 
     public void votar(int numeroCandidato) {
-        for (Candidato : listaCandidatos) {
-            if (Candidato.getNumero() == numeroCandidato) {
-                Candidato.setVotos(Candidato.getVotos() + 1);
+        for (Candidato candidato : listaCandidatos) {
+            if (candidato.getNumero() == numeroCandidato) {
+                candidato.setVotos(candidato.getVotos() + 1);
                 totalVotosGeral++;
                 break;
             }
