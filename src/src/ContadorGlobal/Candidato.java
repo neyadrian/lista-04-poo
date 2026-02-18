@@ -12,4 +12,16 @@ public class Candidato {
         Candidato.totalCandidatos++;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public static int getTotalCandidatos() {
+        return totalCandidatos;
+    }
+
 }
