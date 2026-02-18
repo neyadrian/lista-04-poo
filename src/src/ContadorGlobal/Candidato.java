@@ -23,9 +23,4 @@ public class Candidato {
     public static int getTotalCandidatos() {
         return totalCandidatos;
     }
-
-    public String toString() {
-        return "Candidato: nome = " + nome + ", número = " + numero;
-    }
-
 }
