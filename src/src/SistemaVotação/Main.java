@@ -10,6 +10,36 @@ public class Main {
         Urna urna = new Urna();
         ArrayList<Candidato> candidatos = new ArrayList<>();
 
+        candidatos.add(new Candidato("João Silva", 1001));
+        candidatos.add(new Candidato("Maria Santos", 1002));
+        candidatos.add(new Candidato("Pedro Oliveira", 1003));
+        candidatos.add(new Candidato("Ana Costa", 1004));
+        candidatos.add(new Candidato("Carlos Martins", 1005));
+
+        urna.listaCandidatos = candidatos;
+
+        int op;
+
+        do {
+            System.out.println("\n----- SISTEMA DE VOTAÇÃO -----");
+            System.out.println("1 - Votar");
+            System.out.println("2 - Emitir boletim");
+            System.out.println("3 - Encontrar vencedor");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha: ");
+            op = sc.nextInt();
+            sc.nextLine();
+
+            if (op == 1) {
+                System.out.print("Digite o número do candidato: ");
+                int numeroCandidato = sc.nextInt();
+
+                urna.votar(numeroCandidato);
+                System.out.println("Voto computado!");
+            } else if (op == 2) {
+                
+            }
+        }
 
 
     }
