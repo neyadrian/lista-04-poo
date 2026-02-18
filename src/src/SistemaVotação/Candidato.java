@@ -2,14 +2,13 @@ package SistemaVotação;
 
 public class Candidato {
 
-    public String nome;
-    public int numero;
-    public static int totalCandidatos = 0;
+    private String nome;
+    private int numero;
+    private int votos;
 
     public Candidato(String nome, int numero) {
         this.nome = nome;
         this.numero = numero;
-        Candidato.totalCandidatos++;
     }
 
     public String getNome() {
@@ -18,9 +17,5 @@ public class Candidato {
 
     public int getNumero() {
         return numero;
-    }
-
-    public static int getTotalCandidatos() {
-        return totalCandidatos;
     }
 }
