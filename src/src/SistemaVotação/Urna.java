@@ -7,6 +7,14 @@ public class Urna {
     private static int totalVotosGeral;
     private ArrayList<Candidato> listaCandidatos;
 
+    public ArrayList<Candidato> getListaCandidatos() {
+        return listaCandidatos;
+    }
+
+    public void setListaCandidatos(ArrayList<Candidato> listaCandidatos) {
+        this.listaCandidatos = listaCandidatos;
+    }
+
     public void votar(int numeroCandidato) {
         for (Candidato candidato : listaCandidatos) {
             if (candidato.getNumero() == numeroCandidato) {

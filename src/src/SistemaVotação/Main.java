@@ -16,7 +16,8 @@ public class Main {
         candidatos.add(new Candidato("Ana Costa", 1004));
         candidatos.add(new Candidato("Carlos Martins", 1005));
 
-        urna.listaCandidatos = candidatos;
+        urna.setListaCandidatos(candidatos);
+
 
         int op;
 
@@ -37,10 +38,20 @@ public class Main {
                 urna.votar(numeroCandidato);
                 System.out.println("Voto computado!");
             } else if (op == 2) {
-                
+                Urna.emitirBoletim(urna);
+                System.out.println("Total de votos: " + Urna.getTotalVotosGeral());
+            } else if (op == 3) {
+                Candidato vencedor = urna.encontrarVencedor();
+                if (vencedor != null) {
+                    System.out.println("Vencedor: " + vencedor.getNome());
+                } else {
+                    System.out.println("Sem vencedor.");
+                }
             }
-        }
+        } while (op != 0);
 
+        System.out.println("Saindo...");
 
+        sc.close();
     }
 }
