@@ -10,4 +10,8 @@ public class Candidato {
         this.nome = nome;
         this.numero = numero;
     }
+
+    public void quantCandidatos(int cont) {
+        totalCandidatos = totalCandidatos + cont;
+    }
 }

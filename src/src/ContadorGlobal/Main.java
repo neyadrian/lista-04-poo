@@ -1,24 +1,18 @@
 package ContadorGlobal;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        ArrayList<Candidato> candidatos = new ArrayList<>();
 
-        ArrayList<Candidato> lista = new ArrayList<>();
+        candidatos.add(new Candidato("João Silva", 1001));
+        candidatos.add(new Candidato("Maria Santos", 1002));
+        candidatos.add(new Candidato("Pedro Oliveira", 1003));
+        candidatos.add(new Candidato("Ana Costa", 1004));
+        candidatos.add(new Candidato("Carlos Martins", 1005));
 
-        for (int i = 0; i < 5; i++) {
-            System.out.printf("Digite o nome %d: ", i + 1);
-            String nome = sc.nextLine();
-            System.out.print("Digite o numero: ");
-            int numero = sc.nextInt();
-
-            Candidato candidato = new Candidato(nome, numero);
-        }
-
-        sc.close();
+        System.out.println("Total de Candidatos: " + Candidato.totalCandidatos);
     }
 }
