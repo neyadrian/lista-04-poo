@@ -61,5 +61,21 @@ public class Biblioteca {
         System.out.println("Livro não encontrado.");
     }
 
+    public void listarLivrosDisponiveis() {
+        System.out.println("Livros Disponíveis:");
+        for(Livro livro : livros) {
+            if(livro.isDisponivel()) {
+                System.out.println(livro);
+            }
+        }
+    }
 
+    public void listarLivrosEmprestados() {
+        System.out.println("Livros Emprestados:");
+        for(Livro livro : livros) {
+            if(!livro.isDisponivel()) {
+                System.out.println(livro);
+            }
+        }
+    }
 }
