@@ -34,5 +34,21 @@ public class Biblioteca {
         System.out.println("Livro não encontrado.");
     }
 
+    public void devolverLivro(String titulo) {
+        for(Livro livro : livros) {
+            if(livro.getTitulo().equalsIgnoreCase(titulo)) {
+                if(!livro.isDisponivel()) {
+                    livro.setDisponivel(true);
+                    totalLivrosDisponiveis++;
+                    totalLivrosEmprestados--;
+                    System.out.println("Livro devolvido com sucesso!");
+                } else {
+                    System.out.println("Este livro já está disponível.");
+                }
+                return;
+            }
+        }
+        System.out.println("Livro não encontrado.");
+    }
 
 }
