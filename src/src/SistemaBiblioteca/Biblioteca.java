@@ -51,4 +51,15 @@ public class Biblioteca {
         System.out.println("Livro não encontrado.");
     }
 
+    public void buscarLivro(String titulo) {
+        for(Livro livro : livros) {
+            if(livro.getTitulo().equalsIgnoreCase(titulo)) {
+                System.out.println(livro);
+                return;
+            }
+        }
+        System.out.println("Livro não encontrado.");
+    }
+
+
 }
