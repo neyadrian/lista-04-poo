@@ -4,29 +4,28 @@ import java.util.ArrayList;
 
 public class Biblioteca {
 
-    private ArrayList<Livro> livros;
-    public static int totalLivrosEmprestados;
-    public static int totalLivrosDisponiveis;
+    private ArrayList<Livro> acervo;
+    public static int totalLivrosEmprestados = 0;
 
     public Biblioteca() {
-        livros = new ArrayList<>();
+        acervo = new ArrayList<>();
     }
 
     public void adicionarLivro(Livro livro) {
-        livros.add(livro);
-        totalLivrosDisponiveis++;
+        acervo.add(livro);
+        System.out.println("Livro adicionado com sucesso!");
     }
 
-    public void emprestarLivros(String titulo) {
-        for (Livro livro : livros) {
-            if(livro.getTitulo().equalsIgnoreCase(titulo)) {
-                if(livro.isDisponivel()) {
+    public void emprestarLivro(String titulo) {
+        for (Livro livro : acervo) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+
+                if (livro.isDisponivel()) {
                     livro.setDisponivel(false);
-                    totalLivrosDisponiveis--;
                     totalLivrosEmprestados++;
                     System.out.println("Livro emprestado com sucesso!");
                 } else {
-                    System.out.println("Livro indisponível para empréstimo.");
+                    System.out.println("Livro indisponível.");
                 }
                 return;
             }
@@ -35,15 +34,15 @@ public class Biblioteca {
     }
 
     public void devolverLivro(String titulo) {
-        for(Livro livro : livros) {
-            if(livro.getTitulo().equalsIgnoreCase(titulo)) {
-                if(!livro.isDisponivel()) {
+        for (Livro livro : acervo) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+
+                if (!livro.isDisponivel()) {
                     livro.setDisponivel(true);
-                    totalLivrosDisponiveis++;
                     totalLivrosEmprestados--;
                     System.out.println("Livro devolvido com sucesso!");
                 } else {
-                    System.out.println("Este livro já está disponível.");
+                    System.out.println("Livro já está disponível.");
                 }
                 return;
             }
@@ -51,9 +50,21 @@ public class Biblioteca {
         System.out.println("Livro não encontrado.");
     }
 
+    public ArrayList<Livro> buscarLivrosPorAutor(String autor) {
+        ArrayList<Livro> resultado = new ArrayList<>();
+
+        for (Livro livro : acervo) {
+            if (livro.getAutor().equalsIgnoreCase(autor)) {
+                resultado.add(livro);
+            }
+        }
+
+        return resultado;
+    }
+
     public void buscarLivro(String titulo) {
-        for(Livro livro : livros) {
-            if(livro.getTitulo().equalsIgnoreCase(titulo)) {
+        for (Livro livro : acervo) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
                 System.out.println(livro);
                 return;
             }
@@ -62,20 +73,19 @@ public class Biblioteca {
     }
 
     public void listarLivrosDisponiveis() {
-        System.out.println("Livros Disponíveis:");
-        for(Livro livro : livros) {
-            if(livro.isDisponivel()) {
+        System.out.println("\nLivros Disponíveis:");
+
+        boolean encontrou = false;
+
+        for (Livro livro : acervo) {
+            if (livro.isDisponivel()) {
                 System.out.println(livro);
+                encontrou = true;
             }
         }
-    }
 
-    public void listarLivrosEmprestados() {
-        System.out.println("Livros Emprestados:");
-        for(Livro livro : livros) {
-            if(!livro.isDisponivel()) {
-                System.out.println(livro);
-            }
+        if (!encontrou) {
+            System.out.println("Nenhum livro disponível.");
         }
     }
 }
