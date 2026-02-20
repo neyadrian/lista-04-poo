@@ -15,6 +15,17 @@ public class Estoque {
         System.out.println("Carro adicionado no Estoque!");
     }
 
+    public void removerCarro(String nome) {
+        Carro encontrado = null;
 
+        for(Carro c : carros) {
+            if(c.getNome().equalsIgnoreCase(nome)) {
+                encontrado = c;
+                break;
+            }
+        }
+
+
+    }
 
 }
