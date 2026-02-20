@@ -33,6 +33,15 @@ public class Estoque {
         }
     }
 
+    public void exibirEstoque() {
+        if(carros.isEmpty()) {
+            System.out.println("Estoque vazio.");
+            return;
+        }
 
-
+        System.out.println("\n===== LISTA DE CARROS EM ESTOQUE =====");
+        for (Carro c : carros) {
+            System.out.println(c.getNome() + " - R$ " + c.getPreco());
+        }
+    }
 }
