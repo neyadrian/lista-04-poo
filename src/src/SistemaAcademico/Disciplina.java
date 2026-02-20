@@ -19,4 +19,21 @@ public class Disciplina {
         this.vagasDisponiveis = vagasMaximas;
         this.alunosMatriculados = new ArrayList<>();
     }
+
+    public boolean matricularAluno(Aluno aluno) {
+        if (alunoJaMatriculado(aluno)) {
+            System.out.println("Erro: Aluno " + aluno.getNome() + " já está matriculado nesta disciplina.");
+            return false;
+        }
+
+        if (vagasDisponiveis <= 0) {
+            System.out.println("Erro: Não há vagas disponíveis na disciplina " + nome);
+            return false;
+        }
+
+        alunosMatriculados.add(aluno);
+        vagasDisponiveis--;
+        System.out.println("Aluno " + aluno.getNome() + " matriculado com sucesso em " + nome);
+        return true;
+    }
 }
