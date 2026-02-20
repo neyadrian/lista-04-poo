@@ -23,6 +23,18 @@ public class Main {
             alunos.add(new Aluno(nome, nota));
         }
 
+        ArrayList<Aluno> aprovados = Aluno.filtrarAprovados(alunos);
+
+        System.out.println("\n--- Lista de Aprovados (Nota >= 7.0) ---");
+
+        if (aprovados.isEmpty()) {
+            System.out.println("Nenhum aluno aprovado.");
+        } else {
+            for (Aluno aluno : aprovados) {
+                System.out.println(aluno);
+            }
+        }
+
         sc.close();
     }
 }
