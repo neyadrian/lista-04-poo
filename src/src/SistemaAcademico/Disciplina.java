@@ -36,4 +36,48 @@ public class Disciplina {
         System.out.println("Aluno " + aluno.getNome() + " matriculado com sucesso em " + nome);
         return true;
     }
+
+    public boolean alunoJaMatriculado(Aluno aluno) {
+        for (Aluno a : alunosMatriculados) {
+            if (a.getMatricula().equals(aluno.getMatricula())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ArrayList<Aluno> listarAlunos() {
+        return new ArrayList<>(alunosMatriculados);
+    }
+
+    public int calcularVagasDisponiveis() {
+        return vagasDisponiveis;
+    }
+
+    public void gerarDiario() {
+        System.out.println("\n=== DIÁRIO DE CLASSE ===");
+        System.out.println("Disciplina: " + nome + " (" + codigo + ")");
+        System.out.println("Professor: " + professor.getNome());
+        System.out.println("Total de alunos: " + alunosMatriculados.size());
+        System.out.println("\nAlunos matriculados:");
+
+        for (int i = 0; i < alunosMatriculados.size(); i++) {
+            Aluno a = alunosMatriculados.get(i);
+            System.out.println((i + 1) + ". " + a.getNome() + " - " + a.getMatricula());
+        }
+
+        System.out.println("\nVagas disponíveis: " + vagasDisponiveis + "/" + vagasMaximas);
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
 }
