@@ -25,7 +25,14 @@ public class Estoque {
             }
         }
 
-
+        if(encontrado != null) {
+            carros.remove(encontrado);
+            System.out.println("Carro removido do Estoque!");
+        } else {
+            System.out.println("Carro não encontrado no Estoque!");
+        }
     }
+
+
 
 }
