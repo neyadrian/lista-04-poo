@@ -10,5 +10,11 @@ public class Estoque {
         carros = new ArrayList<>();
     }
 
+    public void adicionarCarro(Carro c) {
+        carros.add(c);
+        System.out.println("Carro adicionado no Estoque!");
+    }
+
+
 
 }
