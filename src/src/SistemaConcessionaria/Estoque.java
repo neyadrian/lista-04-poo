@@ -18,14 +18,14 @@ public class Estoque {
     public void removerCarro(String nome) {
         Carro encontrado = null;
 
-        for(Carro c : carros) {
-            if(c.getNome().equalsIgnoreCase(nome)) {
+        for (Carro c : carros) {
+            if (c.getNome().equalsIgnoreCase(nome)) {
                 encontrado = c;
                 break;
             }
         }
 
-        if(encontrado != null) {
+        if (encontrado != null) {
             carros.remove(encontrado);
             System.out.println("Carro removido do Estoque!");
         } else {
@@ -33,8 +33,17 @@ public class Estoque {
         }
     }
 
+    public Carro buscarCarro(String nome) {
+        for (Carro c : carros) {
+            if (c.getNome().equalsIgnoreCase(nome)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
     public void exibirEstoque() {
-        if(carros.isEmpty()) {
+        if (carros.isEmpty()) {
             System.out.println("Estoque vazio.");
             return;
         }
@@ -43,5 +52,9 @@ public class Estoque {
         for (Carro c : carros) {
             System.out.println(c.getNome() + " - R$ " + c.getPreco());
         }
+    }
+
+    public int totalCarros() {
+        return carros.size();
     }
 }
