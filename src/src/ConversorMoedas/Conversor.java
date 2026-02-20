@@ -10,5 +10,7 @@ public class Conversor {
         return montante * cotacao;
     }
 
-
+    public static double realParaDolar(double montante, double cotacao) {
+        return montante / cotacao;
+    }
 }
