@@ -1,6 +1,5 @@
 package Estoque;
 
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -11,7 +10,7 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        ArrayList<Produto> estoque = new ArrayList<>();
+        Estoque estoque = new Estoque();
         int op;
 
         do {
@@ -24,59 +23,41 @@ public class Main {
             op = sc.nextInt();
             sc.nextLine();
 
-            if (op == 1) {
+            switch (op) {
 
-                System.out.print("Nome do produto: ");
-                String nome = sc.nextLine();
+                case 1:
+                    System.out.print("Nome do produto: ");
+                    String nome = sc.nextLine();
 
-                System.out.print("Preço: ");
-                double preco = sc.nextDouble();
-                sc.nextLine();
+                    System.out.print("Preço: ");
+                    double preco = sc.nextDouble();
+                    sc.nextLine();
 
-                Produto produto = new Produto(nome, preco);
-                estoque.add(produto);
+                    estoque.adicionarProduto(new Produto(nome, preco));
+                    break;
 
-                System.out.println("Produto adicionado!");
+                case 2:
+                    System.out.print("Nome do produto para remover: ");
+                    nome = sc.nextLine();
 
-            } else if (op == 2) {
+                    estoque.removerProduto(nome);
+                    break;
 
-                System.out.print("Nome do produto para remover: ");
-                String nome = sc.nextLine();
+                case 3:
+                    estoque.exibirTodos();
+                    System.out.println("Produtos no estoque: " + estoque.totalProdutos());
+                    break;
 
-                Produto encontrado = null;
+                case 0:
+                    System.out.println("\nSaindo...");
+                    break;
 
-                for (Produto p : estoque) {
-                    if (p.getNome().equalsIgnoreCase(nome)) {
-                        encontrado = p;
-                        break;
-                    }
-                }
-
-                if (encontrado != null) {
-                    estoque.remove(encontrado);
-                    System.out.println("Produto removido!");
-                } else {
-                    System.out.println("Produto não encontrado.");
-                }
-
-            } else if (op == 3) {
-
-                if (estoque.isEmpty()) {
-                    System.out.println("Estoque vazio.");
-                } else {
-                    System.out.println("\nLISTA DE PRODUTOS:");
-                    for (Produto p : estoque) {
-                        System.out.println(p);
-                    }
-                }
-
-            } else if (op != 0) {
-                System.out.println("Opção inválida.");
+                default:
+                    System.out.println("Opção inválida.");
             }
 
         } while (op != 0);
 
-        System.out.println("\nSaindo...");
         sc.close();
     }
 }
