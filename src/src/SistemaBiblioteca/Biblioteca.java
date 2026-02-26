@@ -2,7 +2,7 @@ package SistemaBiblioteca;
 
 import java.util.ArrayList;
 
-public class Biblioteca {
+class Biblioteca {
 
     private ArrayList<Livro> acervo;
     public static int totalLivrosEmprestados = 0;
